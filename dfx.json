@@ -7,6 +7,10 @@
     "motoko": {
       "main": "day_2.mo",
       "type": "motoko"
+    },
+    "motoko": {
+      "main": "day_2.mo",
+      "type": "motoko"
     }
   },
   "defaults": {
