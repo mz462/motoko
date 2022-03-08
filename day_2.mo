@@ -1,11 +1,13 @@
-import Nat8 "mo:base/Nat8";
-import Text "mo:base/Text";
 import Array "mo:base/Array";
-import Iter "mo:base/Iter";
-import Nat "mo:base/Nat";
-import Int "mo:base/Int";
 import Char "mo:base/Char";
 import Debug "mo:base/Debug";
+import Int "mo:base/Int";
+import Iter "mo:base/Iter";
+import Nat "mo:base/Nat";
+import Nat32 "mo:base/Text";
+import Nat8 "mo:base/Nat8";
+import Prim "mo:prim";
+import Text "mo:base/Text";
 
 actor {
 
@@ -26,7 +28,7 @@ actor {
 // Note : decimal_to_bits(255) -> "11111111".
   public func decimal_to_bits (n: Nat) : async Text {
     if (n == 0) {
-      return "Bad Choice. Choose another number"
+      Debug.trap "Bad Choice. Choose another number"
     };
     var tmp: Nat = n;
     var binary: Nat = 0;
@@ -41,15 +43,45 @@ actor {
   };
 
 // Challenge 4 : Write a function capitalize_character that takes a Char c and returns the capitalized version of it.
-  public func capitalize_character (c: Char) : async Char {
-    var tmp: Nat32 = Char.toNat32(c);
+  public func capitalize_character (c: Char) : async Text {
+    // var c = 'b';
+    var tmp : Nat32 = Char.toNat32(c);
+    tmp -= 32;
     var output: Char = Char.fromNat32(tmp);
-    return (output);
+    return Char.toText(output);
   };
 
 // Challenge 5 : Write a function capitalize_text that takes a Text t and returns the capitalized version of it.
+  public func capitalize_text (t: Text) : async Text {
+    for (char in t.chars()){
+      var output = capitalize_character(char);
+      var tmp = Text.join("", Text.toIter(output));
+    };
+    return tmp;
+  };
+
+  // public func capitalize_text (t: Text) : async Text {
+  //     var output = capitalize_character(char);
+  //     var tmp = Text.join(" ", Text.toIter(t));
+    
+  //   return tmp;
+  // };
+
 
 // Challenge 6 : Write a function is_inside that takes two arguments : a Text t and a Char c and returns a Bool indicating if c is inside t .
+
+  public func is_inside (t : Text, c: Text) :async Bool{
+    // var c = "m";
+    var counter = 0;
+    for (char in t.chars()){
+      for (char2 in c.chars()){
+        if  (char == char2) {
+          counter +=1;
+        };
+      };
+    };
+    return counter >= 1;
+  };
 
 // Challenge 7 : Write a function trim_whitespace that takes a text t and returns the trimmed version of t. Note : Trim means removing any leading and trailing spaces from the text : trim_whitespace(" Hello ") -> "Hello".
 
