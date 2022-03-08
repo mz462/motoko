@@ -52,13 +52,13 @@ actor {
   };
 
 // Challenge 5 : Write a function capitalize_text that takes a Text t and returns the capitalized version of it.
-  public func capitalize_text (t: Text) : async Text {
-    for (char in t.chars()){
-      var output = capitalize_character(char);
-      var tmp = Text.join("", Text.toIter(output));
-    };
-    return tmp;
-  };
+  // public func capitalize_text (t: Text) : async Text {
+  //   for (char in t.chars()){
+  //     var output = capitalize_character(char);
+  //     var tmp = Text.join("", Text.toIter(output));
+  //   };
+  //   return tmp;
+  // };
 
   // public func capitalize_text (t: Text) : async Text {
   //     var output = capitalize_character(char);
