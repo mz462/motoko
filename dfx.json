@@ -1,21 +1,12 @@
 {
   "canisters": {
     "motoko": {
-      "main": "src/motoko/main.mo",
+      "main": "day_1.mo",
       "type": "motoko"
     },
-    "motoko_assets": {
-      "dependencies": [
-        "motoko"
-      ],
-      "frontend": {
-        "entrypoint": "src/motoko_assets/src/index.html"
-      },
-      "source": [
-        "src/motoko_assets/assets",
-        "dist/motoko_assets/"
-      ],
-      "type": "assets"
+    "motoko": {
+      "main": "day_2.mo",
+      "type": "motoko"
     }
   },
   "defaults": {
