@@ -92,7 +92,7 @@ actor{
     // Challenge 6 : Write a function populate_array that takes an array [?Nat] and 
     // returns an array [Nat] where all null values have been replaced by 0.
     // Note : Do not use a loop.
-'''
+
     public func checkval (val: ?Nat): async Nat{
         switch(val){
             case(null){
@@ -104,13 +104,19 @@ actor{
         };
     };
 
-    public func populate_array(a: [Nat]):async [Nat]{
-        return(Array.map<Nat,Nat>(a,checkval));
-    };
-'''
+    // public func populate_array(a: [Nat]):async [Nat]{
+    //     return(Array.map<Nat,Nat>(a,checkval));
+    // };
+
     // Challenge 7 : Write a function sum_of_array that takes an array [Nat] 
     //and returns the sum of a values in the array.
     // Note : Do not use a loop.
+    // public func sum_of_array (array: [Nat]): async Nat{
+    //     return (Array.foldRight<Nat,Nat>(array,func(val: Nat): Nat {var sum = 0; sum += val}));
+    // };
+    public func sum_of_array (array: [Nat]): async Nat{
+        return (Array.map<Nat,Nat>(array,func(val: Nat): Nat {var sum = 0; sum += val}));
+    };
 
     // public func sum_of_array(a: [Nat]):async Nat{
     //     return Array.map(a,func(val: Nat) : Bool { n != val });
