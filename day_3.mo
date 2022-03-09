@@ -72,31 +72,18 @@ actor{
     // Challenge 5 : Write a function day_of_the_week that takes a Nat n and returns a Text value corresponding to the day.
     // If n doesn't correspond to any day it will return null .
 
-    public func day_of_the_week(n: Nat): async Text{
+    public func day_of_the_week(n: Nat): async ?Text{
         switch(n){
-            case(1){
-                return "Monday";
-            };
-            case(2){
-                return "Tuesday";
-            };
-            case(3){
-                return "Wednesday";
-            };
-            case(4){
-                return "Thursday";
-            };
-            case(5){
-                return "Friday";
-            };
-            case(6){
-                return "Satday";
-            };
-            case(7){
-                return "Sunday";
-            };
+            case(1){return ?"Monday";};
+            case(2){return ?"Tuesday";};
+            case(3){return ?"Wednesday";};
+            case(4){return ?"Thursday";};
+            case(5){return ?"Friday";};
+            case(6){return ?"Satday";};
+            case(7){return ?"Sunday";};
+            case(_){return null;}
         };
-        return "null"
+        //return "null"
     };
     // day_of_the_week (1) -> "Monday".
     // day_of_the_week (7) -> "Sunday".
@@ -105,8 +92,8 @@ actor{
     // Challenge 6 : Write a function populate_array that takes an array [?Nat] and 
     // returns an array [Nat] where all null values have been replaced by 0.
     // Note : Do not use a loop.
-
-    public func checkval (val: ?Nat):async Nat{
+'''
+    public func checkval (val: ?Nat): async Nat{
         switch(val){
             case(null){
                 return 0;
@@ -117,15 +104,18 @@ actor{
         };
     };
 
-    public func populate_array(a: [?Nat]):async [Nat]{
-        return Array.map(a,func(val: Nat) : Bool { val != null });
+    public func populate_array(a: [Nat]):async [Nat]{
+        return(Array.map<Nat,Nat>(a,checkval));
     };
-
-
-
+'''
     // Challenge 7 : Write a function sum_of_array that takes an array [Nat] 
     //and returns the sum of a values in the array.
     // Note : Do not use a loop.
+
+    // public func sum_of_array(a: [Nat]):async Nat{
+    //     return Array.map(a,func(val: Nat) : Bool { n != val });
+    // };
+
 
     // Challenge 8 : Write a function squared_array that takes
     // an array [Nat] and returns a new array where each value has been squared.
