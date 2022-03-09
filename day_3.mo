@@ -114,9 +114,9 @@ actor{
     // public func sum_of_array (array: [Nat]): async Nat{
     //     return (Array.foldRight<Nat,Nat>(array,func(val: Nat): Nat {var sum = 0; sum += val}));
     // };
-    public func sum_of_array (array: [Nat]): async Nat{
-        return (Array.map<Nat,Nat>(array,func(val: Nat): Nat {var sum = 0; sum += val}));
-    };
+    // public func sum_of_array (array: [Nat]): async Nat{
+    //     return (Array.map<Nat,Nat>(array,func(val: Nat): Nat {var sum = 0; sum += val}));
+    // };
 
     // public func sum_of_array(a: [Nat]):async Nat{
     //     return Array.map(a,func(val: Nat) : Bool { n != val });
