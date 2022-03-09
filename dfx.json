@@ -1,15 +1,19 @@
 {
   "canisters": {
-    "motoko": {
+    "day_1": {
       "main": "day_1.mo",
       "type": "motoko"
     },
-    "motoko": {
+    "day_2": {
       "main": "day_2.mo",
       "type": "motoko"
     },
-    "motoko": {
+    "day_3": {
       "main": "day_3.mo",
+      "type": "motoko"
+    },
+    "testing2": {
+      "main": "testingday_2.mo",
       "type": "motoko"
     }
   },

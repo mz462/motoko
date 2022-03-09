@@ -43,13 +43,13 @@ actor {
   };
 
 // Challenge 4 : Write a function capitalize_character that takes a Char c and returns the capitalized version of it.
-  public func capitalize_character (c: Char) : async Text {
-    // var c = 'b';
-    var tmp : Nat32 = Char.toNat32(c);
-    tmp -= 32;
-    var output: Char = Char.fromNat32(tmp);
-    return Char.toText(output);
-  };
+  // public func capitalize_character (c: Char) : async Text {
+  //   // var c = 'b';
+  //   var tmp : Nat32 = Char.toNat32(c);
+  //   tmp -= 32;
+  //   var output: Char = Char.fromNat32(tmp);
+  //   return Char.toText(output);
+  // };
 
 // Challenge 5 : Write a function capitalize_text that takes a Text t and returns the capitalized version of it.
   // public func capitalize_text (t: Text) : async Text {
@@ -59,6 +59,23 @@ actor {
   //   };
   //   return tmp;
   // };
+
+//Below from solution
+  func _capitalize_character(char : Char) : Char {
+        let unicode_value = Char.toNat32(char);
+        if(unicode_value >= 97 or unicode_value <= 122){
+            return(Char.fromNat32(unicode_value - 32))
+        } else {
+            return (Char.fromNat32(unicode_value));
+        };
+    };
+    public func capitalize_text(word : Text) : async Text {
+        var new_word : Text = "";
+        for(char in word.chars()){
+            new_word #= Char.toText(_capitalize_character(char));
+        };
+        return new_word;
+    };
 
   // public func capitalize_text (t: Text) : async Text {
   //     var output = capitalize_character(char);
@@ -70,18 +87,25 @@ actor {
 
 // Challenge 6 : Write a function is_inside that takes two arguments : a Text t and a Char c and returns a Bool indicating if c is inside t .
 
-  public func is_inside (t : Text, c: Text) :async Bool{
-    // var c = "m";
-    var counter = 0;
-    for (char in t.chars()){
-      for (char2 in c.chars()){
-        if  (char == char2) {
-          counter +=1;
-        };
-      };
-    };
-    return counter >= 1;
+  // public func is_inside (t : Text, c: Text) :async Bool{
+  //   // var c = "m";
+  //   var counter = 0;
+  //   for (char in t.chars()){
+  //     for (char2 in c.chars()){
+  //       if  (char == char2) {
+  //         counter +=1;
+  //       };
+  //     };
+  //   };
+  //   return counter >= 1;
+  // };
+//Above was my attempt to solve the problem
+//Below comes from the solution
+  public func is_inside(t : Text, l: Text) : async Bool{
+    let p = #text(l);
+    return(Text.contains(t,p));
   };
+
 
 // Challenge 7 : Write a function trim_whitespace that takes a text t and returns the trimmed version of t. Note : Trim means removing any leading and trailing spaces from the text : trim_whitespace(" Hello ") -> "Hello".
 

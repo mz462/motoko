@@ -80,9 +80,9 @@ actor {
         };
 
 
-    public func selection_sort(array: [Nat]) : async [Nat]{
-      
-    }
+    // public func selection_sort(array: [Nat]) : async [Nat]{
+    //   return [1;2;3];
+    // }
     
     // public func min (array: [Nat]) : async Nat{
     //     if (array.size()==0){
