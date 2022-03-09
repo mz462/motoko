@@ -9,7 +9,7 @@
       "type": "motoko"
     },
     "motoko": {
-      "main": "day_2.mo",
+      "main": "day_3.mo",
       "type": "motoko"
     }
   },
