@@ -12,23 +12,15 @@
       "main": "day_3.mo",
       "type": "motoko"
     },
-    "testing2": {
-      "main": "testingday_2.mo",
-      "type": "motoko"
-    },
-    "day_4": {
-      "main": "day_4.mo",
-      "type": "motoko"
-    },
-    "person": {
-      "main": "person.mo",
-      "type": "motoko"
-    },
     "main": {
       "main": "main.mo",
       "type": "motoko"
     },
     "custom": {
+      "main": "main.mo",
+      "type": "motoko"
+    },
+    "animal": {
       "main": "main.mo",
       "type": "motoko"
     }
