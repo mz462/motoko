@@ -17,11 +17,15 @@
       "type": "motoko"
     },
     "custom": {
-      "main": "main.mo",
+      "main": "custom.mo",
       "type": "motoko"
     },
     "animal": {
-      "main": "main.mo",
+      "main": "animal.mo",
+      "type": "motoko"
+    },
+    "day_5": {
+      "main": "day_5.mo",
       "type": "motoko"
     }
   },
